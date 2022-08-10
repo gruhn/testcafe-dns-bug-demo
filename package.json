@@ -5,7 +5,7 @@
   },
 
   "scripts": {
-    "test": "testcafe chrome test.spec.js --debug-on-fail",
+    "test": "testcafe chrome test.spec.js --debug-mode",
     "serve": "static ."
   }
 }

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>TestCafe DNS Bug Demo</title>
 </head>
 <body>
     <button id="button">Tell me a joke!</button>
@@ -30,7 +30,7 @@
 
     fetch("https://some-random-domain-without-dns-entry-139481023.com", {
         "headers": { 
-            // no idea why but without this header I can't reproduce the behavior
+            // no idea why, but without this header I can't reproduce the behavior
             "content-type": "application/json"
         }
     }).then(console.log).catch(console.error)
