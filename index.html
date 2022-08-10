@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="button">Tell me a joke!</button>
+
+    <p id="output"></p>
+</body>
+<script>
+    const button = document.querySelector("#button")
+    const output = document.querySelector("#output") 
+    
+    button.addEventListener("click", async () => {
+        output.innerText = "loading..."
+
+        try {
+            const resp = await fetch("https://api.chucknorris.io/jokes/random")
+            const joke = (await resp.json()).value
+
+            setTimeout(() => { output.innerText = joke }, 1000)
+        } catch (error) {
+            output.innerText = error
+        }
+    })
+
+    fetch("https://some-random-domain-without-dns-entry-139481023.com", {
+        "headers": { 
+            // no idea why but without this header I can't reproduce the behavior
+            "content-type": "application/json"
+        }
+    }).then(console.log).catch(console.error)
+</script>
+</html>
