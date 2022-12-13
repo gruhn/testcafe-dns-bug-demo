@@ -1,11 +1,10 @@
 {
   "dependencies": {
     "node-static": "^0.7.11",
-    "testcafe": "^1.20.1"
+    "testcafe": "^2.1.0"
   },
-
   "scripts": {
-    "test": "testcafe chrome test.spec.js --debug-mode",
+    "test": "testcafe chrome test.spec.js --debug-on-fail --experimental-proxyless",
     "serve": "static ."
   }
 }
